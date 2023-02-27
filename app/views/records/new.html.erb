@@ -1,1 +1,12 @@
-<h1> New </h1>
+<h1> Add a record </h1>
+<p>let the record spin...</p>
+
+ <%= simple_form_for [@user, @record] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :artist %>
+      <%= f.label :genres %> <br>
+      <%= f.select :genre, GENRES %>
+      <%= f.input :price, :label => "Price per day", as: :integer %>
+      <%= f.input :location, :label => "Pick-up location" %>
+      <%= f.submit "Submit record" %>
+<% end %>

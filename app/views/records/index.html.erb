@@ -1,5 +1,10 @@
 <h1> All Vinyls are displayed below </h1>
 
 <% @records.each do |record| %>
-  <%= record %>
+  <p>Vinyl title: <%= record.title %></p>
+  <p>Artist: <%= record.artist %></p>
+  <p>Genre: <%= record.genre %></p>
+  <br>
+  <p>Price per day: <%= record.price %></p>
+  <p>Pick-up location: <%= record.location %></p>
 <% end %>
