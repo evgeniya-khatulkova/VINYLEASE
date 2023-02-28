@@ -1,7 +1,11 @@
 class RecordsController < ApplicationController
+  before_action :find_record, only: %i[show edit update destroy]
 
   def index
     @records = Record.all
+  end
+
+  def show
   end
 
   def new
@@ -11,16 +15,33 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
 
-    if @record.save!
+    if @record.save
       redirect_to records_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+  end
+
+  def update
+    @record.update(record_params)
+    redirect_to record_path(@record), status: :see_other
+  end
+
+  def destroy
+    @record.destroy
+    redirect_to records_path, status: :see_other
+  end
+
   private
 
+  def find_record
+    @record = Record.find(params[:id])
+  end
+
   def record_params
-    params.permit(:record).require(%i[title genre price location artist])
+    params.require(:record).permit(%i[title genre price location artist])
   end
 end

@@ -1,10 +1,16 @@
+<div class='container'>
+
 <h1> All Vinyls are displayed below </h1>
 
+<p>New Vinyl? </p><%= link_to "click here", new_record_path	%>
+<br>
+
 <% @records.each do |record| %>
-  <p>Vinyl title: <%= record.title %></p>
-  <p>Artist: <%= record.artist %></p>
-  <p>Genre: <%= record.genre %></p>
   <br>
-  <p>Price per day: <%= record.price %></p>
-  <p>Pick-up location: <%= record.location %></p>
+  <p><strong>Vinyl title:</strong> <%= record.title %></p>
+  <p><strong>Artist: </strong><%= record.artist %></p>
+  <%= link_to "more details", record_path(record) %>
+  <br>
+  <br>
 <% end %>
+</div>
