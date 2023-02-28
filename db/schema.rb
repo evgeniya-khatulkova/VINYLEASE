@@ -26,6 +26,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_134027) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "record_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_id"], name: "index_reservations_on_record_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "rating"
@@ -47,4 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_134027) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reservations", "records"
+  add_foreign_key "reservations", "users"
 end
