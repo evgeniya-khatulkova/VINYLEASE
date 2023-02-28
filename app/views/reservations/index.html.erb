@@ -1,0 +1,7 @@
+<h1>Index</h1>
+
+<ul>
+<% @reservations.each do |reservation| %>
+  <li><%= link_to reservation.start_date, record_reservation_path(reservation) %></li>
+<% end %>
+</ul>
