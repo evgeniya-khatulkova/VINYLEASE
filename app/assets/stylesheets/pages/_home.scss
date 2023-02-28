@@ -1,35 +1,60 @@
+.button-container {
+  display: flex; justify-content: space-between;
+  gap: 30px;
+  margin: 10px 10px;
+}
+
 .genre-button {
   display: table-row;
   text-decoration: none;
   width: fit-content;
-  text-align: center;
-  text-justify: auto;
   padding-top: 20px;
   padding-bottom: 5px;
   color: black;
   font-weight: bold;
   transition: opacity 0.3s ease;
 }
+  a {
+    text-decoration: none;
+    color: black;
+}
+
+  .genre-button:hover {
+    transform: scale(1.2);
+  }
+
+
 
 .genre-button:hover {
   opacity: 1;
 }
 
-.button-container {
-  display: flex; justify-content: space-between;
-  gap: 10px;
-  margin: 10px 10px;
-}
+  .cards-container {
+    gap: 5px;
+    border: 1px darkgrey;
+    border-radius: 5px;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: space-around;
+    //font-size: 22px;
+    color: black;
+  }
+
 
 .card-record {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .card-record > img {
   height: 200px;
   width: 100%;
+  padding-top: 5px;
   object-fit: contain;
 }
 

@@ -1,88 +1,142 @@
 <div class="container">
-  <div class="col-12 col-sm-4">
-    <div class="row">
+  <div class="row">
       <div class="button-container">
         <div class="genre-button">
-        <a href="#"><img src="assets/icons8-record-player-80 (1).png">ROCK</a>
+        <a href="#">
+          <img src="assets/guitar.png" style="height: 45px;">
+          <div> ROCK </div>
+        </a>
         </div>
-        <%#= link_to "ROCK", "#", class: "btn btn-ghost" %>
-        <%#= link_to "JAZZ", "#", class: "btn btn-ghost" %>
-        <%#= link_to "ELECTRO", "#", class: "btn btn-ghost" %>
-        <%#= link_to "POP", "#", class: "btn btn-ghost" %>
-        <%#= link_to "HIP HOP", "#", class: "btn btn-ghost" %>
-        <%#= link_to "FUNK", "#", class: "btn btn-ghost" %>
-        <%#= link_to "SOUL", "#", class: "btn btn-ghost" %>
-        <%#= link_to "DISCO", "#", class: "btn btn-ghost" %>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/trumpet.png" style="height: 45px;">
+            <div> JAZZ </div>
+          </a>
+        </div>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/icons8-record-player-80 (1).png" style="height: 45px;">
+            <div> ELECTRONIC </div>
+          </a>
+        </div>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/listen.png" style="height: 45px;">
+            <div> POP </div>
+          </a>
+        </div>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/music.png" style="height: 45px;">
+            <div> HIPHOP </div>
+          </a>
+        </div>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/drum.png" style="height: 45px;">
+            <div> FUNK </div>
+          </a>
+        </div>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/piano.png" style="height: 45px;">
+            <div> SOUL </div>
+          </a>
+        </div>
+
+        <div class="genre-button">
+          <a href="#">
+            <img src="assets/disco-ball.png" style="height: 45px;">
+            <div> DISCO </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="cards-container">
-    <div class="card-record">
-      <%= image_tag('vinyl2.jpg', alt: "Vinyl")%>
-    <div class="card-info">
-      <div>
-        <h2>Record Title</h2>
-        <p>Description of the record</p>
-      </div>
-      <h2 class="card-record-price">$ 2.00</h2>
-    </div>
-    </div>
-
-    <div class="card-record">
-      <%= image_tag('vinyl3.jpg', alt: "Vinyl")%>
-      <div class="card-info">
-        <div>
-          <h2>Record Title</h2>
-          <p>Description of the record</p>
+    <div class="row">
+      <% @records.each do |record| %>
+        <div class="col-sm-12 col-md-3 p-1 mt-4 my-4">
+          <%= render "components/card", record: record %>
         </div>
-        <h2 class="card-record-price">$ 2.00</h2>
-      </div>
-    </div>
 
-    <div class="card-record">
-      <%= image_tag('vinyl4.jpeg', alt: "Vinyl")%>
-      <div class="card-info">
-        <div>
-          <h2>Record Title</h2>
-          <p>Description of the record</p>
-        </div>
-        <h2 class="card-record-price">$ 2.00</h2>
-      </div>
-    </div>
-
-    <div class="card-record">
-      <%= image_tag('vinyl5.jpeg', alt: "Vinyl")%>
-      <div class="card-info">
-        <div>
-          <h2>Record Title</h2>
-          <p>Description of the record</p>
-        </div>
-        <h2 class="card-record-price">$ 2.00</h2>
-      </div>
-    </div>
-
-    <div class="card-record">
-      <%= image_tag('vinyl6.jpg', alt: "Vinyl")%>
-      <div class="card-info">
-        <div>
-          <h2>Record Title</h2>
-          <p>Description of the record</p>
-        </div>
-        <h2 class="card-record-price">$ 2.00</h2>
-      </div>
-    </div>
-
-    <div class="card-record">
-      <%= image_tag('vinyl7.jpeg', alt: "Vinyl")%>
-      <div class="card-info">
-        <div>
-          <h2>Record Title</h2>
-          <p>Description of the record</p>
-        </div>
-        <h2 class="card-record-price">$ 2.00</h2>
-      </div>
+      <% end %>
     </div>
   </div>
+
+
+  <div class="cards-container">
+<!--    <div class="card-record">-->
+      <%#= image_tag('vinyl2.jpg', alt: "Vinyl")%>
+<!--      <div class="card-info">-->
+<!--        <div>-->
+<!--          <h2>Record Title</h2>-->
+<!--          <p>Description of the record</p>-->
+<!--        </div>-->
+<!--        <h2 class="card-record-price">$ 2.00</h2>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="card-record">-->
+      <%#= image_tag('vinyl3.jpg', alt: "Vinyl")%>
+<!--      <div class="card-info">-->
+<!--        <div>-->
+<!--          <h2>Record Title</h2>-->
+<!--          <p>Description of the record</p>-->
+<!--        </div>-->
+<!--        <h2 class="card-record-price">$ 2.00</h2>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="card-record">-->
+      <%#= image_tag('vinyl4.jpeg', alt: "Vinyl")%>
+<!--      <div class="card-info">-->
+<!--        <div>-->
+<!--          <h2>Record Title</h2>-->
+<!--          <p>Description of the record</p>-->
+<!--        </div>-->
+<!--        <h2 class="card-record-price">$ 2.00</h2>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="card-record">-->
+      <%#= image_tag('vinyl5.jpeg', alt: "Vinyl")%>
+<!--      <div class="card-info">-->
+<!--        <div>-->
+<!--          <h2>Record Title</h2>-->
+<!--          <p>Description of the record</p>-->
+<!--        </div>-->
+<!--        <h2 class="card-record-price">$ 2.00</h2>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="card-record">-->
+      <%#= image_tag('vinyl6.jpg', alt: "Vinyl")%>
+<!--      <div class="card-info">-->
+<!--        <div>-->
+<!--          <h2>Record Title</h2>-->
+<!--          <p>Description of the record</p>-->
+<!--        </div>-->
+<!--        <h2 class="card-record-price">$ 2.00</h2>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="card-record">-->
+      <%#= image_tag('vinyl7.jpeg', alt: "Vinyl")%>
+<!--      <div class="card-info">-->
+<!--        <div>-->
+<!--          <h2>Record Title</h2>-->
+<!--          <p>Description of the record</p>-->
+<!--        </div>-->
+<!--        <h2 class="card-record-price">$ 2.00</h2>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </div>
