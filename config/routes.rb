@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :records, only: %i[index new create]
+  root to: "records#index"
+  resources :records
   devise_for :users
-  root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # only: %i[index new create]
 end
