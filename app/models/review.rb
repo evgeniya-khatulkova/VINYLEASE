@@ -4,3 +4,4 @@ class Review < ApplicationRecord
   validates :content, length: { minimum: 6 }
   belongs_to :reservation
 end
+
