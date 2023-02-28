@@ -4,6 +4,10 @@
   margin: 10px 10px;
 }
 
+#electronic-icon{
+  align-self: center;
+}
+
 .genre-button {
   display: table-row;
   text-decoration: none;
@@ -21,22 +25,20 @@
 
   .genre-button:hover {
     transform: scale(1.2);
+    color: grey;
   }
 
 
-
-.genre-button:hover {
-  opacity: 1;
-}
-
   .cards-container {
+    padding: 40px;
     gap: 5px;
     border: 1px darkgrey;
+    border-bottom: none;
     border-radius: 5px;
     background: white;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0);
     align-items: center;
     justify-content: space-around;
     //font-size: 22px;
@@ -45,7 +47,6 @@
 
 
 .card-record {
-  overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -56,6 +57,7 @@
   width: 100%;
   padding-top: 5px;
   object-fit: contain;
+
 }
 
 .card-record h2 {
