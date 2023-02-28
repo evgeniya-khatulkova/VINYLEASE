@@ -1,8 +1,12 @@
 .btn-ghost {
+  width: fit-content;
+  text-align: center;
+  text-justify: auto;
+  padding-top: 20px;
+  padding-bottom: 5px;
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 20px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -14,6 +18,8 @@
 
 .button-container {
   display: flex; justify-content: space-between;
+  gap: 10px;
+  margin: 10px 10px;
 }
 
 .card-record {

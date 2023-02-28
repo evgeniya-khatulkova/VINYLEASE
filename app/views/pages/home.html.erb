@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-4">
+  <div class="col-12 col-sm-4">
+    <div class="row">
       <div class="button-container">
         <%= link_to "ROCK", "#", class: "btn btn-ghost" %>
         <%= link_to "JAZZ", "#", class: "btn btn-ghost" %>
-        <%= link_to "ELECTRONIC", "#", class: "btn btn-ghost" %>
+        <%= link_to "ELECTRO", "#", class: "btn btn-ghost" %>
         <%= link_to "POP", "#", class: "btn btn-ghost" %>
         <%= link_to "HIP HOP", "#", class: "btn btn-ghost" %>
         <%= link_to "FUNK", "#", class: "btn btn-ghost" %>
@@ -16,42 +16,40 @@
 
   <div class="cards">
     <div class="card-record">
-      <img src="vinyl6.jpg" alt="Vinyl">
+      <%= image_tag('vinyl6.jpg', alt: "Vinyl")%>
+<!--      <img src="assets/vinyl6.jpg" alt="Vinyl">-->
     <div class="card-info">
       <div>
         <h2>Record Title</h2>
         <p>Description of the record</p>
       </div>
       <h2 class="card-record-price">$ 2.00</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
     </div>
     </div>
   </div>
 
   <div class="cards">
     <div class="card-record">
-      <img src="vinyl6.jpg" alt="Vinyl">
+      <%= image_tag('vinyl.jpg', alt: "Vinyl")%>
       <div class="card-info">
         <div>
           <h2>Record Title</h2>
           <p>Description of the record</p>
         </div>
         <h2 class="card-record-price">$ 2.00</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
       </div>
     </div>
   </div>
 
   <div class="cards">
     <div class="card-record">
-      <img src="vinyl6.jpg" alt="Vinyl">
+      <%= image_tag('vinyl2.jpg', alt: "Vinyl")%>
       <div class="card-info">
         <div>
           <h2>Record Title</h2>
           <p>Description of the record</p>
         </div>
         <h2 class="card-record-price">$ 2.00</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
       </div>
     </div>
   </div>
