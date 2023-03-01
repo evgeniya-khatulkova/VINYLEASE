@@ -1,6 +1,5 @@
-GENRES = ["Rock", "Jazz", "Electronic", "Pop", "Hip-hop", "Funk", "Soul", "Disco"]
-
 class Record < ApplicationRecord
+  GENRES = ["Rock", "Jazz", "Electronic", "Pop", "Hip-hop", "Funk", "Soul", "Disco"]
   has_many :reservations, dependent: :destroy
   has_many :users, through: :reservations
   # belongs_to :user
