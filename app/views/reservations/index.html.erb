@@ -1,7 +1,10 @@
-<%# <h1>Index</h1>
+<h1>My reservations</h1>
 
 <ul>
-<% @reservations.each do |reservation| %>
-  <%# <li><%= link_to reservation.start_date, record_reservations_path(reservation)</li> %>
-<%# <% end %>
-<%# </ul> %>
+  <% current_user.reservations.each do |reservation| %>
+    <li>start date:<%= reservation.start_date%> <br>
+        end date:<%= reservation.end_date%><br>
+        album:<%= reservation.record.title%> </li>
+        total price:<%=reservation.end_date - reservation.start_date %>
+  <% end %>
+</ul>

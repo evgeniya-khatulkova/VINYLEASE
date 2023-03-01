@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
-  resources :records do
+  resources :records, only: [:new, :create, :show, :destroy, :update, :edit] do
     resources :reservations, only: [:index, :new, :create, :show]
   end
 
