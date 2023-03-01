@@ -2,9 +2,14 @@
 
 <ul>
   <% current_user.reservations.each do |reservation| %>
-    <li>start date:<%= reservation.start_date%> <br>
-        end date:<%= reservation.end_date%><br>
+    <li>from: <%= reservation.start_date%> <br>
+        to: <%= reservation.end_date%><br>
         album:<%= reservation.record.title%> </li>
-        total amount to pay:<%=(reservation.end_date - reservation.start_date).to_i * reservation.record.price %> $
+        total amount to pay:<%= days = (reservation.end_date - reservation.start_date).to_i
+                                if days < 1
+                                   days = days + 1
+                                end
+                                days * reservation.record.price %> $
+        <p></p>
   <% end %>
 </ul>
