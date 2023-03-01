@@ -35,15 +35,19 @@
       <%# <% end %>
     </div>
 
-    <div class='vinyl-content-avatar col-4'>
-      <%# Evgenia can add reviews here %>
-      <br>
-      <br>
-        <p><strong>Anonymous:</strong> Great music!</p>
-        <p><strong>Amber:</strong> I like it. Happy to rent it again. </p>
-        <p><strong>John:</strong> Not my style... </p>
+    <div class='reviews-show col-4'>
+    <% if user_signed_in? %>
+       <% current_user.reservations.each do |reservation| %>
+        <% reservation.reviews.each do |review| %>
+          <li><p id="name"><%= reservation.user.name %>: </p>
+          <p><%= review.content%></p>
+          <p>Rating: <% number = review.rating%>
+                     <% number.to_i.times do%>
+                      🖤
+        <% end %></p>
+        <% end %>
+       <% end %>
+     <% end %>
     </div>
   </div>
-
-      <%# <% end %>
 </div>
