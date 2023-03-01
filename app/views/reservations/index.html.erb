@@ -5,6 +5,6 @@
     <li>start date:<%= reservation.start_date%> <br>
         end date:<%= reservation.end_date%><br>
         album:<%= reservation.record.title%> </li>
-        total price:<%=reservation.end_date - reservation.start_date %>
+        total amount to pay:<%=(reservation.end_date - reservation.start_date).to_i * reservation.record.price %> $
   <% end %>
 </ul>
