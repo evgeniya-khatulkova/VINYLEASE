@@ -1,12 +1,14 @@
-<div class="card-record ">
+<%= link_to record_path(record) do %> <div class="card-record ">
   <%= image_tag('vinyl2.jpg', alt: "Vinyl")%>
   <div class="card-info">
     <div>
       <h2>
        <%= record.title %>
       </h2>
-      <p>Description of the record</p>
+      <p>Artist: <%=record.artist %></p>
+      <p>Genre: <%=record.genre %></p>
     </div>
-    <h2 class="card-record-price">$ 2.00</h2>
+    <h2 class="card-record-price"><%= record.price%> $</h2>
   </div>
 </div>
+<% end %>
