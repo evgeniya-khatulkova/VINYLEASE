@@ -1,1 +1,88 @@
-// Specific CSS for your home-page
+.button-container {
+  display: flex; justify-content: space-between;
+  gap: 20px;
+  margin: 5px 5px;
+}
+
+#electronic-icon{
+  align-self: center;
+}
+
+.genre-button {
+  display: table-row;
+  text-decoration: none;
+  width: fit-content;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  color: black;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+  a {
+    text-decoration: none;
+    color: black;
+}
+
+  .genre-button:hover {
+    transform: scale(1.2);
+    color: grey;
+  }
+
+
+  .cards-container {
+    padding: 40px;
+    gap: 5px;
+    border: 1px darkgrey;
+    border-bottom: none;
+    border-radius: 5px;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0);
+    align-items: center;
+    justify-content: space-around;
+    //font-size: 22px;
+    color: black;
+  }
+
+
+.card-record {
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.card-record > img {
+  height: 200px;
+  width: 100%;
+  padding-top: 5px;
+  object-fit: contain;
+
+}
+
+.card-record h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-record p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-record .card-info {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-record .card-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
