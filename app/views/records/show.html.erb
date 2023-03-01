@@ -36,18 +36,16 @@
     </div>
 
     <div class='reviews-show col-4'>
-    <% if user_signed_in? %>
-       <% current_user.reservations.each do |reservation| %>
-        <% reservation.reviews.each do |review| %>
-          <li><p id="name"><%= reservation.user.name %>: </p>
+
+
+        <% @record.reviews.each do |review| %>
+          <li><p id="name"><%= review.reservation.user.name %>: </p>
           <p><%= review.content%></p>
           <p>Rating: <% number = review.rating%>
                      <% number.to_i.times do%>
                       🖤
         <% end %></p>
         <% end %>
-       <% end %>
-     <% end %>
     </div>
   </div>
 </div>
