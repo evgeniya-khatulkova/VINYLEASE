@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
-  resources :records
+  root to: "records#index"
+  resources :records do
+    resources :reservations
+  end
   devise_for :users
 
   # only: %i[index new create]

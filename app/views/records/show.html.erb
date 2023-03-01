@@ -1,16 +1,43 @@
 <div class='container'>
-  <h2>Vinyl details of <%= @record.title %> </h2>
 
-  <p><strong>Title: </strong><%= @record.title %></p>
-  <p><strong>Artist: </strong><%= @record.artist %></p>
-  <p><strong>Genre: </strong><%= @record.genre %></p>
-  <p><strong>Price per day: </strong><%= @record.price %></p>
-  <p><strong>Pick-up location: </strong><%= @record.location %></p>
+  <div class='vinyls-show row pb-4'>
+    <div class='vinyl-choice text-center col-md-8 align-self-center '>
+      <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+    </div>
+    <div class='vinyl-related text-center col-md-4 align-self-md-center'>
+      <div class='row'>
+        <%= image_tag('vinyl-or.jpg', alt: "Vinyl O&R", class: 'col-2 col-md-4') %>
+        <%= image_tag('vinyl-bw.jpg', alt: "Vinyl B&W", class: 'col-2 col-md-4') %>
+        <%= image_tag('vinyl-or.jpg', alt: "Vinyl O&R", class: 'col-2 col-md-4') %>
+        <%= image_tag('vinyl-w.jpg', alt: "Vinyl W", class: 'col-2 col-md-4') %>
+        <%= image_tag('vinyl-bw.jpg', alt: "Vinyl O&R", class: 'col-2 col-md-4') %>
+        <%= image_tag('vinyl-w.jpg', alt: "Vinyl W", class: 'col-2 col-md-4') %>
+       </div>
+     </div>
+     </div>
+  </div>
 
-  <%= link_to "back", :back %>
-  <%# If-statement below can be implemented later (delete and update only for user who created this)%>
-  <%# <% if current_user == user %>
-  <%= link_to "delete", record_path(@record), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to "update", edit_record_path(@record) %>
-  <%# <% end %>
+  <div class='vinyl-content row justify-content-between'>
+    <div class='vinyl-details justify-content-between col-8'>
+      <h2>Vinyl details of <%= @record.title %> </h2>
+      <p><strong>Title: </strong><%= @record.title %></p>
+      <p><strong>Artist: </strong><%= @record.artist %></p>
+      <p><strong>Genre: </strong><%= @record.genre %></p>
+      <p><strong>Price per day: </strong><%= @record.price %></p>
+      <p><strong>Pick-up location: </strong><%= @record.location %></p>
+
+      <%= link_to "back", :back %>
+      <%# If-statement below can be implemented later (delete and update only for user who created this)%>
+      <%# <% if current_user == user %>
+      <%= link_to "delete", record_path(@record), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%= link_to "update", edit_record_path(@record) %>
+      <%= link_to "reserve", new_record_reservation_path(@record)%>
+      <%# <% end %>
+    </div>
+
+    <div class='vinyl-content-avatar col-4'>
+      <%= image_tag "https://source.unsplash.com/random/240x320/?face", id: "avatar-show" %>
+    </div>
+
+  </div>
 </div>
