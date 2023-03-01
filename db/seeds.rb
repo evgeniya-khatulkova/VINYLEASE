@@ -7,10 +7,10 @@
 
 require "faker"
 
-User.destroy_all
-Record.destroy_all
-Reservation.destroy_all
 Review.destroy_all
+Reservation.destroy_all
+Record.destroy_all
+User.destroy_all
 
 5.times do
   user = User.create!(
