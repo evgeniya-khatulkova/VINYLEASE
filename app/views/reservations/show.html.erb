@@ -1,0 +1,8 @@
+<h1>Show page reservations</h1>
+<% if user_signed_in? %>
+<% current_user.reservations.each do |reservation| %>
+    <%= reservation.record.title %>
+    <%= reservation.start_date %>
+    <%= reservation.end_date %>
+<% end %>
+<% end %>

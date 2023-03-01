@@ -1,0 +1,10 @@
+<h1>Reservation</h1>
+
+<%= simple_form_for [@record, @reservation] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", record_path(@record), class: "btn btn-ghost" %>
+</div>
