@@ -16,7 +16,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
 
     if @record.save
-      redirect_to records_path
+      redirect_to record_path(@record)
     else
       render :new, status: :unprocessable_entity
     end
