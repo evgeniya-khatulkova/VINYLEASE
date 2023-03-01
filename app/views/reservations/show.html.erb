@@ -1,8 +1,16 @@
 <h1>My reservations</h1>
 <% if user_signed_in? %>
-<% current_user.reservations.each do |reservation| %>
-    <%= reservation.record.title %>
-    <%= reservation.start_date %>
-    <%= reservation.end_date %>
+  <%= current_user.email %>
+  <% current_user.reservations.each do |reservation| %>
+      <%= reservation.record.title %>
+      <%= reservation.start_date %>
+      <%= reservation.end_date %>
+      <%= link_to "Create a review", new_reservation_review_path(reservation_id: reservation.id)%>
+
+        <% reservation.reviews.each do |review| %>
+          <li><p>Review: <%= review.content%></p>
+          <p>Rating: <%= review.rating%></p>
+        <% end %>
+  <% end %>
 <% end %>
-<% end %>
+

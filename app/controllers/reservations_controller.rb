@@ -6,7 +6,9 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all
   end
 
-  def show; end
+  def show
+    @reviews = @reservation.reviews
+  end
 
   def new
     @reservation = Reservation.new
