@@ -46,9 +46,15 @@
 .button {
  margin-left: 5%;
  margin-top: 20px;
+ padding: 1px;
+ border: rgb(206, 134, 89) solid;
+ width: 8%;
+ text-align: center;
+ border-radius: 3px;
 }
 
 a:link, a:visited, a:hover, a:active {
   text-decoration:none;
   color: black;
 }
+
