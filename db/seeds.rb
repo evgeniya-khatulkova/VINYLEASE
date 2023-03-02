@@ -6,7 +6,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
-
+genres = ["Rock", "Jazz", "Electronic", "Pop", "Hip-hop", "Funk", "Soul", "Disco"]
 Review.destroy_all
 Reservation.destroy_all
 Record.destroy_all
@@ -22,7 +22,7 @@ User.destroy_all
   record = Record.create!(
     title: Faker::Music.album,
     artist: Faker::Music.band,
-    genre: GENRES.sample,
+    genre: genres.sample,
     location: Faker::Address.city,
     price: rand(1..10),
     user_id: user.id)
