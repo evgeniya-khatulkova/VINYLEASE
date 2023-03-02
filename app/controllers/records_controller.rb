@@ -31,6 +31,8 @@ class RecordsController < ApplicationController
   end
 
   def destroy
+    reviews = Review.where(reservation_id: params[:id])
+    reviews.destroy_all
     @record.destroy
     redirect_to root_path, status: :see_other
   end
