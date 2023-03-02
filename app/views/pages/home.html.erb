@@ -4,7 +4,7 @@
         <div class="genre-button">
         <a href="#">
           <%= image_tag("guitar.png", style:"height: 40px;") %>
-          <div>  ROCK </div>
+          <div> <%=link_to "Rock", root_path(genre: "Rock")%> </div>
         </a>
         </div>
 
@@ -12,7 +12,7 @@
         <div class="genre-button">
           <a href="#">
            <%= image_tag("trumpet.png", style:"height: 40px;") %>
-            <div> JAZZ </div>
+            <div> <%=link_to "Jazz", root_path(genre: "Jazz")%> </div>
           </a>
         </div>
 
@@ -20,7 +20,7 @@
         <div class="genre-button">
           <a href="#">
           <%= image_tag("icons8-record-player-80 (1).png", style:"height: 40px;", id:"electronic-icon") %>
-            <div> ELECTRO </div>
+            <div>  <%=link_to "Electro", root_path(genre: "Electro")%> </div>
           </a>
         </div>
 
@@ -28,7 +28,7 @@
         <div class="genre-button">
           <a href="#">
           <%= image_tag("listen.png", style:"height: 40px;") %>
-            <div> POP </div>
+            <div>  <%=link_to "POP", root_path(genre: "Pop")%> </div>
           </a>
         </div>
 
@@ -36,28 +36,28 @@
         <div class="genre-button">
           <a href="#">
             <%= image_tag("music.png", style:"height: 40px;") %>
-            <div> HIPHOP </div>
+            <div>  <%=link_to "Hiphop", root_path(genre: "Hiphop")%> </div>
           </a>
         </div>
 
         <div class="genre-button">
           <a href="#">
             <%= image_tag("drum.png", style:"height: 40px;") %>
-            <div> FUNK </div>
+            <div>  <%=link_to "Funk", root_path(genre: "Funk")%> </div>
           </a>
         </div>
 
         <div class="genre-button">
           <a href="#">
           <%= image_tag("piano.png", style:"height: 40px;") %>
-            <div> SOUL </div>
+            <div>  <%=link_to "Soul", root_path(genre: "Soul")%> </div>
           </a>
         </div>
 
         <div class="genre-button">
           <a href="#">
             <%= image_tag("disco-ball.png", style:"height: 40px;") %>
-            <div> DISCO </div>
+            <div>  <%=link_to "Disco", root_path(genre: "Disco")%> </div>
           </a>
         </div>
       </div>
