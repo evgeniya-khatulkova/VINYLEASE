@@ -3,8 +3,7 @@ class PagesController < ApplicationController
     @records = Record.all
       if params[:genre].present?
         @records = Record.where(genre: [params[:genre]])
-      end
-    if params[:query].present?
+      elsif params[:query].present?
       sql_query = "artist ILIKE :query OR title ILIKE :query"
       @records = Record.where(sql_query, query: "%#{params[:query]}%")
     else
