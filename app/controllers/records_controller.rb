@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record.destroy
-    redirect_to records_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
