@@ -1,12 +1,22 @@
-<div class='container'>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="_new_record.scss">
+  <title>New Record</title>
+</head>
+<body>
   <div class='row justify-content-center'>
-    <div class='col-6'>
-<h1> Add a record </h1>
-<h4>let the record spin...</h4>
-  <%= render "form", record: @record %>
-  <br>
-<%= link_to "back", root_path, class: "btn btn-outline-secondary rounded-pill" %>
-</div>
-</div>
-</div>
-<%= link_to "All vinyls", root_path%>
+<!--    <div class='col-6'>-->
+      <h1>Add record </h1>
+      <h4>Let the record spin...</h4>
+      <%= render "form", record: @record %>
+      <br>
+      <%= link_to "Back", root_path, class: "btn btn-outline-secondary rounded-pill" %>
+      <%= link_to "All vinyls", root_path%>
+    </div>
+  </div>
+</body>
+</html>
+
