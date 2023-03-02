@@ -4,7 +4,7 @@
 
 <ul id="reservaation-ul" class="p-0" >
   <% current_user.reservations.each do |reservation| %>
-    <div class="card-product">
+    <div class="card-product h-25">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
     <div class="card-product-infos">
       <li>from: <%= reservation.start_date%> <br>
@@ -14,7 +14,21 @@
                                   if days < 1
                                     days = days + 1
                                   end
-                                  days * reservation.record.price %> $
+                                  days * reservation.record.price %> $ <br>
+          status: <% reservation = Reservation.find(params[:reservation_id]) %>
+                    <% if current_user.owner %>
+                      <% if reservation.status == "pending" %>
+                        <%= reservation.status %>
+                        <%= link_to "accept request", reservations_path(status: "accepted", reservation_id: reservation.id) %> or
+                        <%= link_to "cancel request", reservations_path(status: "cancelled",  reservation_id: reservation.id) %>
+                      <% else %>
+                        <%= reservation.status %>
+                      <% end %>
+                    <% else %>
+                    <%# (costumer) %>
+                      <%= reservation.status %>
+                      <%= link_to "delete reservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    <% end %>
     </div>
     </div>
   <% end %>
