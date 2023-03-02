@@ -1,7 +1,22 @@
-<%# <h1>Index</h1>
+<div class="header">
+  <h1>My reservations</h1>
+</div>
 
-<ul>
-<% @reservations.each do |reservation| %>
-  <%# <li><%= link_to reservation.start_date, record_reservations_path(reservation)</li> %>
-<%# <% end %>
-<%# </ul> %>
+<ul id="reservaation-ul" class="p-0" >
+  <% current_user.reservations.each do |reservation| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <li>from: <%= reservation.start_date%> <br>
+          to: <%= reservation.end_date%><br>
+          album:<%= reservation.record.title%> </li>
+          total amount to pay:<%= days = (reservation.end_date - reservation.start_date).to_i
+                                  if days < 1
+                                    days = days + 1
+                                  end
+                                  days * reservation.record.price %> $
+    </div>
+    </div>
+  <% end %>
+    <div class="button"><%= link_to "All vinyls", root_path%></div>
+</ul>
