@@ -1,7 +1,19 @@
 <div class='container'>
-  <h2> Edit <%=  @record.title %></h2>
-  <%= render "form", record: @record %>
-  <hr>
-  <%= link_to "All vinyl", root_path %>
+<div class='row justify-content-center'>
+<div class='col-6'>
+  <h1> Edit "<%=  @record.title %>"</h1>
+  <%# <%= render "form", record: @record %>
+  <br>
+  <%= simple_form_for [@user, @record] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :artist %>
+      <%= f.input :genre, as: :select, collection: Record::GENRES, input_html: {class: "rounded"} %>
+      <%= f.input :price, :label => "Price per day", as: :integer, input_html: {min: '0', step: '1'} %>
+      <%= f.input :location, :label => "Pick-up location" %>
+      <%= f.submit "Edit record", class: "btn btn-outline-secondary rounded-pill" %>
+  <% end %>
+  <br>
+  <%= link_to "back", record_path, class: "btn btn-outline-secondary rounded-pill" %>
 </div>
-
+</div>
+</div>
