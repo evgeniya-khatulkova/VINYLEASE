@@ -2,7 +2,11 @@
 
   <div class='vinyls-show row pb-4', id = "vinyl-info">
     <div class='vinyl-choice text-center col-md-8 align-self-center '>
-      <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% if @record.photo.attached? %>
+        <%= cl_image_tag @record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
+      <% else %>
+        <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% end %>
     </div>
     <div class='vinyl-related text-center col-md-4 align-self-md-center'>
       <div class='row'>

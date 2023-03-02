@@ -19,6 +19,7 @@
   font-weight: bold;
   transition: opacity 0.3s ease;
 }
+
   a {
     text-decoration: none;
     color: black;
@@ -29,10 +30,9 @@
     color: grey;
   }
 
-
   .cards-container {
-    padding: 40px;
-    gap: 5px;
+    padding: 40px 40px 0;
+    padding-left: 100px;
     border: 1px darkgrey;
     border-bottom: none;
     border-radius: 5px;
@@ -40,8 +40,8 @@
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 5px rgba(0,0,0,0);
-    align-items: center;
-    justify-content: space-around;
+    // align-items: center;
+    // justify-content: space-between;
     //font-size: 22px;
     color: black;
   }
@@ -51,14 +51,18 @@
   background: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  width:250px;
 }
 
 .card-record > img {
-  height: 200px;
-  width: 100%;
-  padding-top: 5px;
+  height: 250px;
+  width: 250px;
+  // padding-top: 5px;
   object-fit: contain;
-
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  overflow: hidden;
+  background-color: black;
 }
 
 .card-record h2 {
