@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "pages#home"
   resources :records, only: %i[new create show destroy update save edit] do
-    resources :reservations, only: [:index, :new, :create, :show]
+    resources :reservations, only: [:index, :new, :create]
   end
 
   resources :reservations do

@@ -6,6 +6,5 @@ class User < ApplicationRecord
 
   has_many :records, dependent: :destroy
 
-  has_many :reservations, through: :records
-  ## has_many :records, through: :reservations
+  has_many :reservations
 end
