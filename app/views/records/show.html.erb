@@ -46,7 +46,9 @@
                       🖤
         <% end %></p>
         <% end %>
+        <%if @record.id < 21%>
         <%= link_to "Leave a review", new_reservation_review_path(@record)%>
+        <%end%>
     </div>
   </div>
 </div>
