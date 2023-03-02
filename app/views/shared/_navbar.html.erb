@@ -7,10 +7,19 @@
     <h2>VINYLEASE</h2>
     </div>
 
-    <form class="d-flex">
-        <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+    <%# <%= form_with url: root_path, method: :get, class="d-flex" %>
+        <%# <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-secondary rounded-pill" type="submit">Search</button>
-    </form>
+    </form> %>
+
+    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a record"
+      %>
+      <%= submit_tag "Search", class: "btn btn-outline-secondary rounded-pill" %>
+    <% end %>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
