@@ -4,5 +4,6 @@
       <%= f.input :genre, as: :select, collection: Record::GENRES, input_html: {class: "rounded"} %>
       <%= f.input :price, :label => "Price per day", as: :integer, input_html: {min: '0', step: '1'} %>
       <%= f.input :location, :label => "Pick-up location" %>
+       <%= f.input :photo, as: :file %>
       <%= f.submit "Add record", class: "btn btn-outline-secondary rounded-pill" %>
 <% end %>

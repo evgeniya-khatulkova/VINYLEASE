@@ -1,5 +1,9 @@
 <%= link_to record_path(record) do %> <div class="card-record ">
-  <%= image_tag('vinyl2.jpg', alt: "Vinyl")%>
+  <% if record.photo.attached? %>
+        <%= cl_image_tag record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
+      <% else %>
+        <%= image_tag 'vinyl2.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% end %>
   <div class="card-info">
     <div>
       <h2>
@@ -8,7 +12,7 @@
       <p>Artist: <%=record.artist %></p>
       <p>Genre: <%=record.genre %></p>
     </div>
-    <h2 class="card-record-price"><%= record.price%> $</h2>
+    <h2 class="card-record-price">$ <%= record.price%></h2>
   </div>
 </div>
 <% end %>

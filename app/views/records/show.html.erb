@@ -1,8 +1,12 @@
 <div class='container'>
 
-  <div class='vinyls-show row pb-4', id = "vinyl-info">
+  <div class='vinyls-show row mb-5 mt-5', id = "vinyl-info">
     <div class='vinyl-choice text-center col-md-8 align-self-center '>
-      <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% if @record.photo.attached? %>
+        <%= cl_image_tag @record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
+      <% else %>
+        <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% end %>
     </div>
     <div class='vinyl-related text-center col-md-4 align-self-md-center'>
       <div class='row'>
@@ -26,6 +30,8 @@
       <p><strong>Price per day: $ </strong><%= @record.price %></p>
       <p><strong>Pick-up location: </strong><%= @record.location %></p>
 
+
+        <div class="links-show">
           <%= link_to "back", root_path,  class: "btn btn-outline-secondary rounded-pill" %>
       <%# If-statement below can be implemented later (delete and update only for user who created this)%>
       <%# <% if current_user == user %>
@@ -41,7 +47,7 @@
             <%= link_to "Leave a review", new_reservation_review_path(@record)%>
           <%end%>
           <%end%>
-      <%# <% end %>
+            </div>
     </div>
     <div class='reviews-show col-3'>
 
@@ -54,6 +60,9 @@
                       🖤
         <% end %></p>
         <% end %>
-    </div>
+        <div class="links-show">
+        <%= link_to "Leave a review", new_reservation_review_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
+        </div>
+     </div>
   </div>
 </div>

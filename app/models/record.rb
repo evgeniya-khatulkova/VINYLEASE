@@ -10,4 +10,5 @@ class Record < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :location, presence: true
   validates :artist, presence: true
+  has_one_attached :photo
 end
