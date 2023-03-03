@@ -42,6 +42,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(%i[title genre price location artist])
+    params.require(:record).permit(%i[title genre price location artist photo])
   end
 end

@@ -1,22 +1,31 @@
-<div class="header">
-  <h1>My reservations</h1>
-</div>
 
-<ul id="reservaation-ul" class="p-0" >
-  <% current_user.reservations.each do |reservation| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-      <li>from: <%= reservation.start_date%> <br>
-          to: <%= reservation.end_date%><br>
-          album:<%= reservation.record.title%> </li>
-          total amount to pay:<%= days = (reservation.end_date - reservation.start_date).to_i
-                                  if days < 1
-                                    days = days + 1
-                                  end
-                                  days * reservation.record.price %> $
-    </div>
-    </div>
-  <% end %>
-    <div class="button"><%= link_to "All vinyls", root_path%></div>
-</ul>
+<div class="reservations">
+  <div class="header">
+    <h1>My reservations</h1>
+  </div>
+  <div class="container">
+  <ul id="reservation-ul" class="p-0" >
+    <% current_user.reservations.each do |reservation| %>
+      <div class="card-product">
+      <% if reservation.record.photo.attached? %>
+          <%= cl_image_tag reservation.record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
+        <% else %>
+          <%= image_tag 'vinyl2.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+        <% end %>
+      <div class="card-product-infos">
+        <li>from: <%= reservation.start_date%> <br>
+            to: <%= reservation.end_date%><br>
+            album:<%= reservation.record.title%> </li>
+            total amount to pay:<%= days = (reservation.end_date - reservation.start_date).to_i
+                                    if days < 1
+                                      days = days + 1
+                                    end
+                                    days * reservation.record.price %> $
+      </div>
+      </div>
+    <% end %>
+
+  </ul>
+  <div class="button btn btn-outline-secondary rounded-pill"><%= link_to "All vinyls", root_path%></div>
+  </div>
+</div>
