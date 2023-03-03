@@ -32,11 +32,11 @@ count.times do
     genre: genres.sample,
     location: Faker::Address.city,
     price: rand(1..10),
-    user_id: user.id
-    )
-    record.photo.attach(io: URI.open(albums_string[index]), filename: "#{record.title}", content_type: "image/jpg")
-    index += 1
-    puts "#{record.photo.attached?} #{Record.count} / #{count}"
+    user_id: user.id)
+
+      record.photo.attach(io: URI.open(albums_string[index]), filename: "#{record.title}", content_type: "image/jpg")
+      index += 1
+      puts "#{record.photo.attached?} #{Record.count} / #{count}"
 
   reservation = Reservation.create!(
     start_date: Faker::Date.between(from: '2023-03-01', to: '2023-03-10'),
