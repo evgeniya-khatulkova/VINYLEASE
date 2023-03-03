@@ -20,27 +20,36 @@
      </div>
   </div>
 
-  <div class='vinyl-content row justify-content-between'>
+  <div class='vinyl-content'>
 
-    <div class='vinyl-details justify-content-between col-8'>
-      <h2>Vinyl details of <%= @record.title %> </h2>
+    <div class='vinyl-details col-8'>
+      <h2><%= @record.title %> </h2>
       <p><strong>Title: </strong><%= @record.title %></p>
       <p><strong>Artist: </strong><%= @record.artist %></p>
       <p><strong>Genre: </strong><%= @record.genre %></p>
-      <p><strong>Price per day: </strong><%= @record.price %></p>
+      <p><strong>Price per day: $ </strong><%= @record.price %></p>
       <p><strong>Pick-up location: </strong><%= @record.location %></p>
+
+
         <div class="links-show">
-          <%= link_to "Back", :back,  class: "btn btn-outline-secondary rounded-pill" %>
+          <%= link_to "back", root_path,  class: "btn btn-outline-secondary rounded-pill" %>
       <%# If-statement below can be implemented later (delete and update only for user who created this)%>
       <%# <% if current_user == user %>
-          <%= link_to "Delete", record_path(@record), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-secondary rounded-pill" %>
-          <%= link_to "Update", edit_record_path(@record), class: "btn btn-outline-secondary rounded-pill" %>
-          <%= link_to "Reserve", new_record_reservation_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
-      <%# <% end %>
-      </div>
+          <%if @record.user_id == current_user.id%>
+            <%= link_to "delete", record_path(@record), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-secondary rounded-pill" %>
+          <%end%>
+          <%if @record.user_id == current_user.id%>
+            <%= link_to "update", edit_record_path(@record), class: "btn btn-outline-secondary rounded-pill" %>
+          <%end%>
+          <%if @record.user_id != current_user.id%>
+            <%= link_to "reserve", new_record_reservation_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
+          <%if @record.user_id != current_user.id%>
+            <%= link_to "Leave a review", new_reservation_review_path(@record)%>
+          <%end%>
+          <%end%>
+            </div>
     </div>
-
-    <div class='reviews-show col-4'>
+    <div class='reviews-show col-3'>
 
 
         <% @record.reviews.each do |review| %>
@@ -54,6 +63,6 @@
         <div class="links-show">
         <%= link_to "Leave a review", new_reservation_review_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
         </div>
-    </div>
+     </div>
   </div>
 </div>

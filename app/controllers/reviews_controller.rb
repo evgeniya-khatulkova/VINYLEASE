@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.reservation = @reservation
     @review.save
-    redirect_to reservation_path(@reservation)
+    redirect_to record_path(@reservation.record)
   end
 
   def new

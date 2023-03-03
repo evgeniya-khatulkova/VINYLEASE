@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
-
+    @record.user_id = current_user.id
     if @record.save
       redirect_to record_path(@record)
     else

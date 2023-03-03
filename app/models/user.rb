@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :records, dependent: :destroy
 
   has_many :reservations
-  ## has_many :records, through: :reservations
 end
