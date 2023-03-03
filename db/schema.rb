@@ -61,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_112007) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["record_id"], name: "index_reservations_on_record_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

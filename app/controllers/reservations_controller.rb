@@ -1,9 +1,17 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: :show
+  before_action :set_reservation, only: %i[show destroy]
   before_action :set_record, only: %i[new create]
 
   def index
     @reservations = Reservation.all
+    
+    if params[:status].present?
+      if params[:status] == "accepted"
+        Reservation.find(params[:reservation_id]).update(status: "accepted")
+      else
+        Reservation.find(params[:reservation_id]).update(status: "declined")
+      end
+    end
   end
 
   def show
@@ -12,6 +20,10 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+  end
+
+  def destroy
+    @reservation.destroy
   end
 
   def create

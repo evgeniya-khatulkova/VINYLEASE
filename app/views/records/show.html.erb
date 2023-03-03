@@ -24,15 +24,18 @@
 
     <div class='vinyl-details col-8'>
       <h2><%= @record.title %> </h2>
-      <p><strong>Title: </strong><%= @record.title %></p>
       <p><strong>Artist: </strong><%= @record.artist %></p>
       <p><strong>Genre: </strong><%= @record.genre %></p>
       <p><strong>Price per day: $ </strong><%= @record.price %></p>
       <p><strong>Pick-up location: </strong><%= @record.location %></p>
 
+      <audio controls>
+      <% song = @genre["#{@record.genre}"]%>
+        <source src="<%= song %>" type="audio/mp3">
+      </audio> <br>
 
-        <div class="links-show">
-          <%= link_to "back", root_path,  class: "btn btn-outline-secondary rounded-pill" %>
+    <div class="links-show">
+          <%= link_to "Back", root_path,  class: "btn btn-outline-secondary rounded-pill" %>
       <%# If-statement below can be implemented later (delete and update only for user who created this)%>
       <%# <% if current_user == user %>
           <%if @record.user_id == current_user.id%>
@@ -50,8 +53,6 @@
             </div>
     </div>
     <div class='reviews-show col-3'>
-
-
         <% @record.reviews.each do |review| %>
           <li><p id="name"><%= review.reservation.user.name %>: </p>
           <p><%= review.content%></p>

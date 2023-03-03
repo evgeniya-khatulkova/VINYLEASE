@@ -3,7 +3,6 @@ class Record < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :reviews, through: :reservations
   has_many :users, through: :reservations
-  # belongs_to :user
 
   validates :title, presence: true
   validates :genre, presence: true, inclusion: { in: GENRES }

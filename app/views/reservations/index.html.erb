@@ -4,14 +4,14 @@
     <h1>My reservations</h1>
   </div>
   <div class="container">
-  <ul id="reservation-ul" class="p-0" >
+    <ul class="reservation-ul p-0" >
     <% current_user.reservations.each do |reservation| %>
       <div class="card-product">
-      <% if reservation.record.photo.attached? %>
-          <%= cl_image_tag reservation.record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
-        <% else %>
-          <%= image_tag 'vinyl2.jpg', alt: "Vinyl B&W", class: 'record-img' %>
-        <% end %>
+        <% if reservation.record.photo.attached? %>
+            <%= cl_image_tag reservation.record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
+          <% else %>
+            <%= image_tag 'vinyl2.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+          <% end %>
       <div class="card-product-infos">
         <li>from: <%= reservation.start_date%> <br>
             to: <%= reservation.end_date%><br>
@@ -20,12 +20,51 @@
                                     if days < 1
                                       days = days + 1
                                     end
-                                    days * reservation.record.price %> $
+                                    days * reservation.record.price %> $ <br>
+            status:  <% if current_user.id == reservation.user_id %>
+                        <% if reservation.status == nil %>
+                            pending  | COSTUMER |
+                            <%= link_to "delete reservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                        <% else %>
+                            <%= reservation.status %>
+                        <% end %>
+                      <% end %>
       </div>
       </div>
     <% end %>
-
-  </ul>
+    </ul>
   <div class="button btn btn-outline-secondary rounded-pill"><%= link_to "All vinyls", root_path%></div>
   </div>
+
+
+  <div class="header">
+    <h1>Incoming reservations</h1>
+  </div>
+
+  <ul class="reservation-ul p-0" >
+    <% current_user.records.each do |record| %>
+        <% record_specific = record.title %>
+          <% record.reservations.each do |reservation| %>
+            <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+                record: <%= record_specific %> <br>
+                from: <%= reservation.end_date %> <br>
+                to: <%= reservation.end_date %> <br>
+                total price:<%= days = (reservation.end_date - reservation.start_date).to_i
+                                    if days < 1
+                                      days = days + 1
+                                    end
+                                    days * reservation.record.price %> $
+                  <% if reservation.status == nil %>
+                    pending  |  <%= link_to "accept request", reservations_path(status: "accepted", reservation_id: reservation.id) %> or <%= link_to "cancel request", reservations_path(status: "cancelled",  reservation_id: reservation.id) %>
+                  <% else %>
+                      <%= reservation.status %>
+                  <% end %>
+                  </div>
+              </div>
+            <% end %>
+          <% end %>
+  </ul>
+
 </div>
