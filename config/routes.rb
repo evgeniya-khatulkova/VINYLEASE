@@ -8,11 +8,5 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[index new create show destroy]
   end
 
-  # resources :records do
-  #   collection do
-  #     get :rock
-  #   end
-  # end
-
   devise_for :users
 end

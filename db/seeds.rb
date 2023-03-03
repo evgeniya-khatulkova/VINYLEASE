@@ -17,7 +17,8 @@ User.destroy_all
     owner: [true, false].sample,
     email: Faker::Internet.email,
     name: Faker::Name.name,
-    password: "lewagon123")
+    password: "lewagon123"
+  )
 
   record = Record.create!(
     title: Faker::Music.album,
@@ -25,16 +26,19 @@ User.destroy_all
     genre: genres.sample,
     location: Faker::Address.city,
     price: rand(1..10),
-    user_id: user.id)
+    user_id: user.id
+  )
 
   reservation = Reservation.create!(
     start_date: Faker::Date.between(from: '2023-03-01', to: '2023-03-10'),
     end_date: Faker::Date.between(from: '2023-03-11', to: '2023-03-15'),
     user_id: user.id,
-    record_id: record.id)
+    record_id: record.id
+  )
 
     Review.create!(
     content: Faker::Quote.yoda,
     rating: rand(1..5),
-    reservation_id: reservation.id)
+    reservation_id: reservation.id
+  )
 end
