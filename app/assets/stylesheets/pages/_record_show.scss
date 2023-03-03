@@ -1,5 +1,20 @@
 // Import page-specific CSS files here.
 
+.vinyl-content {
+  display: flex;
+}
+
+.vinyl-details {
+  padding: 20px;
+  padding-left: 100px;
+
+}
+
+.reviews-show {
+  padding-top: 0px;
+  padding-right: 100px;
+}
+
 .record-img {
   width: 60%;
 }
