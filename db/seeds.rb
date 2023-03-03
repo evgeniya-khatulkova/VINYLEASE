@@ -31,8 +31,8 @@ User.destroy_all
     start_date: Faker::Date.between(from: '2023-03-01', to: '2023-03-10'),
     end_date: Faker::Date.between(from: '2023-03-11', to: '2023-03-15'),
     user_id: user.id,
-    record_id: record.id,
-    status: "pending")
+    record_id: record.id)
+    # status: "pending")
 
     Review.create!(
       content: Faker::Quote.yoda,

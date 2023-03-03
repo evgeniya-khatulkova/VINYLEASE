@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
-
+    
     if params[:status].present?
       if params[:status] == "accepted"
         Reservation.find(params[:reservation_id]).update(status: "accepted")
