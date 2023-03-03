@@ -1,8 +1,12 @@
 <div class='container'>
 
-  <div class='vinyls-show row pb-4', id = "vinyl-info">
+  <div class='vinyls-show row mb-5 mt-5', id = "vinyl-info">
     <div class='vinyl-choice text-center col-md-8 align-self-center '>
-      <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% if @record.photo.attached? %>
+        <%= cl_image_tag @record.photo.key, alt: "Vinyl B&W", class: 'record-img' %>
+      <% else %>
+        <%= image_tag 'vinyl-bw.jpg', alt: "Vinyl B&W", class: 'record-img' %>
+      <% end %>
     </div>
     <div class='vinyl-related text-center col-md-4 align-self-md-center'>
       <div class='row'>
@@ -30,14 +34,15 @@
         <source src="<%= song %>" type="audio/mp3">
       </audio> <br>
 
-          <%= link_to "back", :back,  class: "btn btn-outline-secondary rounded-pill" %>
+    <div class="links-show">
+          <%= link_to "Back", :back,  class: "btn btn-outline-secondary rounded-pill" %>
       <%# If-statement below can be implemented later (delete and update only for user who created this)%>
       <%# <% if current_user == user %>
-          <%= link_to "delete", record_path(@record), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-secondary rounded-pill" %>
-          <%= link_to "update", edit_record_path(@record), class: "btn btn-outline-secondary rounded-pill" %>
-          <%= link_to "reserve", new_record_reservation_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
+          <%= link_to "Delete", record_path(@record), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-secondary rounded-pill" %>
+          <%= link_to "Update", edit_record_path(@record), class: "btn btn-outline-secondary rounded-pill" %>
+          <%= link_to "Reserve", new_record_reservation_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
       <%# <% end %>
-
+      </div>
     </div>
 
     <div class='reviews-show col-4'>
@@ -49,7 +54,9 @@
                       🖤
         <% end %></p>
         <% end %>
-        <%= link_to "Leave a review", new_reservation_review_path(@record)%>
+        <div class="links-show">
+        <%= link_to "Leave a review", new_reservation_review_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
+        </div>
     </div>
   </div>
 </div>

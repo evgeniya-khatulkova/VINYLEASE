@@ -67,10 +67,9 @@
   <div class="cards-container">
     <div class="row">
       <% @records.each do |record| %>
-        <div class="col-sm-12 col-md-3 p-1 mt-4 my-4">
+        <div class="col-sm-12 col-md-3 mb-3 mt-5">
           <%= render "components/card", record: record %>
         </div>
-
       <% end %>
     </div>
   </div>
