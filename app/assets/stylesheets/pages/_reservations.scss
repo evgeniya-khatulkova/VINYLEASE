@@ -2,11 +2,12 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 10px auto;
+  margin: 10px auto 30px auto;
   width: 90%;
+  border-radius: 5px;
 }
 
 .card-product img {
@@ -16,7 +17,7 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin: 0;
 }
@@ -30,7 +31,7 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 18px;
 }
 
 .header {
@@ -47,4 +48,8 @@
 a:link, a:visited, a:hover, a:active {
   text-decoration:none;
   color: black;
+}
+
+#bad-button {
+  margin-left: 65px;
 }
