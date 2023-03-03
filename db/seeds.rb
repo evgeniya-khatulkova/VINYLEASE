@@ -27,8 +27,8 @@ count.times do
   )
 
   record = Record.create!(
-    title: Faker::Music.album,
-    artist: Faker::Music.band,
+    title: Faker::Music.album[0..12],
+    artist: Faker::Music.band[0..12],
     genre: genres.sample,
     location: Faker::Address.city,
     price: rand(1..10),

@@ -35,7 +35,7 @@
       </audio> <br>
 
     <div class="links-show">
-          <%= link_to "Back", root_path,  class: "btn btn-outline-secondary rounded-pill" %>
+          <%= link_to "back", root_path,  class: "btn btn-outline-secondary rounded-pill" %>
       <%# If-statement below can be implemented later (delete and update only for user who created this)%>
       <%# <% if current_user == user %>
           <%if @record.user_id == current_user.id%>
@@ -61,9 +61,6 @@
                       🖤
         <% end %></p>
         <% end %>
-        <div class="links-show">
-        <%= link_to "Leave a review", new_reservation_review_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
-        </div>
      </div>
   </div>
 </div>
