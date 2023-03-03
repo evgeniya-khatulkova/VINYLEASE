@@ -41,13 +41,16 @@
           <div class="card-product">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
            <div class="card-product-infos">
-              <%= record_specific %>
-              <%= reservation.user.email %>
-              <%= reservation.end_date %>
+              record: <%= record_specific %> <br>
+              from: <%= reservation.end_date %> <br>
+              to: <%= reservation.end_date %> <br>
+              total price:<%= days = (reservation.end_date - reservation.start_date).to_i
+                                  if days < 1
+                                    days = days + 1
+                                  end
+                                  days * reservation.record.price %> $
                 <% if reservation.status == nil %>
-                  pending  | OWNER |
-                    <%= link_to "accept request", reservations_path(status: "accepted", reservation_id: reservation.id) %> or
-                    <%= link_to "cancel request", reservations_path(status: "cancelled",  reservation_id: reservation.id) %>
+                  pending  |  <%= link_to "accept request", reservations_path(status: "accepted", reservation_id: reservation.id) %> or <%= link_to "cancel request", reservations_path(status: "cancelled",  reservation_id: reservation.id) %>
                 <% else %>
                     <%= reservation.status %>
                 <% end %>
