@@ -45,10 +45,14 @@
             <%= link_to "update", edit_record_path(@record), class: "btn btn-outline-secondary rounded-pill" %>
           <%end%>
           <%if @record.user_id != current_user.id%>
-            <%= link_to "reserve", new_record_reservation_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
-          <%if @record.user_id != current_user.id%>
-            <%= link_to "Leave a review", new_reservation_review_path(@record)%>
-          <%end%>
+              <%= link_to "reserve", new_record_reservation_path(@record),  class: "btn btn-outline-secondary rounded-pill"%>
+            <% if @record.user_id != current_user.id %>
+
+              <% res = Reservation.find_by(user_id: current_user.id, record_id: @record.id) %>
+              <% if res %>
+                <%= link_to "Leave a review", new_reservation_review_path(res)%>
+              <% end %>
+            <% end %>
           <%end%>
             </div>
     </div>
