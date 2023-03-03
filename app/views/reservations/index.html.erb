@@ -15,8 +15,7 @@
                                     days = days + 1
                                   end
                                   days * reservation.record.price %> $ <br>
-          status: <% reservation = Reservation.find(params[:reservation_id]) %>
-                    <% if current_user.owner %>
+          status:   <% if current_user.owner %>
                       <% if reservation.status == "pending" %>
                         <%= reservation.status %>
                         <%= link_to "accept request", reservations_path(status: "accepted", reservation_id: reservation.id) %> or
@@ -29,8 +28,8 @@
                       <%= reservation.status %>
                       <%= link_to "delete reservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                     <% end %>
-    </div>
-    </div>
   <% end %>
+    </div>
+    </div>
     <div class="button"><%= link_to "All vinyls", root_path%></div>
 </ul>

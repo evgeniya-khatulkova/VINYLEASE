@@ -41,8 +41,6 @@
     </div>
 
     <div class='reviews-show col-4'>
-
-
         <% @record.reviews.each do |review| %>
           <li><p id="name"><%= review.reservation.user.name %>: </p>
           <p><%= review.content%></p>
